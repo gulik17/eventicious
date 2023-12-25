@@ -1,4 +1,4 @@
-# sms_ru
+# Eventicious API
 
 PHP-класс для работы с api сервиса [eventicious.com](https://eventicious.com/)
 
