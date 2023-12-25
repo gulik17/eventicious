@@ -4,41 +4,46 @@ namespace Gulik17\Eventicious;
 
 /**
  * Класс для взаимодействия с API Eventicious (Приложение iOS/Android)
- * 
- * 
  */
 
-class Eventicious {
+class Eventicious
+{
     protected $host;         // api host
     protected $code;         // code
     protected $last_error;   // api last error
 
-    private function fixHost($host) {
+    private function fixHost($host)
+    {
         return rtrim($host, "/")."/";
     }
 
     /* SETTERS AND GETTERS */
-    public function setHost($host) {
+    public function setHost($host)
+    {
         if ($this->host != $host) {
             $this->host = $this->fixHost($host);
         }
     }
 
-    public function getHost() {
+    public function getHost()
+    {
         return $this->host;
     }
 
-    public function setCode($code) {
+    public function setCode($code)
+    {
         if ($this->code != $code) {
             $this->code = $code;
         }
     }
 
-    public function getCode() {
+    public function getCode()
+    {
         return $this->code;
     }
 
-    public function getLastError() {
+    public function getLastError()
+    {
         return $this->last_error;
     }
 
@@ -67,7 +72,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function locationsCreate($id, $position, $name) {
+    public function locationsCreate($id, $position, $name)
+    {
         $data = [
                 'id'       => (int) $id,
                 'position' => (int) $position,
@@ -87,7 +93,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function locationsUpdate($id, $position, $name, $language = 'ru-RU') {
+    public function locationsUpdate($id, $position, $name, $language = 'ru-RU')
+    {
         $data = [
                 'id'       => (int) $id,
                 'position' => (int) $position,
@@ -105,7 +112,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function locationsDelete($id) {
+    public function locationsDelete($id)
+    {
         $id = (int) $id;
         return $this->CallAPI("DELETE", "api/external/Locations/Delete/$id");
     }
@@ -177,7 +185,8 @@ class Eventicious {
                         $description = "",
                         $isSpeaker = false,
                         $externalImagePath = "",
-                        $aclGroupsIds = '') {
+                        $aclGroupsIds = '')
+    {
         $data = [
                 'id'                => (int) $id,
                 'firstName'         => $firstName,
@@ -230,7 +239,8 @@ class Eventicious {
                         $facebook = "",
                         $description = "",
                         $language = "ru-RU",
-                        $aclGroupsIds = '') {
+                        $aclGroupsIds = '')
+    {
         $data = [
                 'id'                => (int) $id,
                 'firstName'         => $firstName,
@@ -257,7 +267,8 @@ class Eventicious {
      *
      * @return array Массив
      */
-    public function speakersDelete($id) {
+    public function speakersDelete($id)
+    {
         $id = (int) $id;
         return $this->CallAPI("DELETE", "api/external/Speakers/Delete/$id");
     }
@@ -290,7 +301,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function tracksCreate($id, $visibilityFlag, $name, $color) {
+    public function tracksCreate($id, $visibilityFlag, $name, $color)
+    {
         $data = [
                 'id'             => (int) $id,
                 'visibilityFlag' => $visibilityFlag,
@@ -313,7 +325,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function tracksUpdate($id, $visibilityFlag, $name, $color, $language = "ru-RU") {
+    public function tracksUpdate($id, $visibilityFlag, $name, $color, $language = "ru-RU")
+    {
         $data = [
                 'id'             => (int) $id,
                 'visibilityFlag' => $visibilityFlag,
@@ -333,7 +346,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function tracksDelete($id) {
+    public function tracksDelete($id)
+    {
         $id = (int) $id;
         return $this->CallAPI("DELETE", "api/external/Tags/Delete/$id");
     }
@@ -380,7 +394,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function sessionsCreate($id, $title, $description, $startTime, $endTime, $trackId, $speakersIds, $locationsIds, $style) {
+    public function sessionsCreate($id, $title, $description, $startTime, $endTime, $trackId, $speakersIds, $locationsIds, $style)
+    {
         $data = [
                 'id'           => (int) $id,
                 'title'        => $title,
@@ -413,7 +428,8 @@ class Eventicious {
      *
      * @return array Массив
      */
-    public function sessionsUpdate($id, $title, $description, $startTime, $endTime, $tagIds, $speakersIds, $locationsIds, $style, $language = "ru-RU") {
+    public function sessionsUpdate($id, $title, $description, $startTime, $endTime, $tagIds, $speakersIds, $locationsIds, $style, $language = "ru-RU")
+    {
         $data = [
                 'id'           => (int) $id,
                 'title'        => $title,
@@ -438,7 +454,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function sessionsDelete($id) {
+    public function sessionsDelete($id)
+    {
         $id = (int) $id;
         return $this->CallAPI("DELETE", "api/external/Sessions/Delete/$id");
     }
@@ -467,7 +484,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function sessionsAttachmentsCreate($id, $title, $url, $sessionId) {
+    public function sessionsAttachmentsCreate($id, $title, $url, $sessionId)
+    {
         $data = [
                 'id'           => (int) $id,
                 'title'        => $title,
@@ -489,7 +507,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function sessionsAttachmentsUpdate($id, $title, $url, $sessionId, $language = "ru-RU") {
+    public function sessionsAttachmentsUpdate($id, $title, $url, $sessionId, $language = "ru-RU")
+    {
         $data = [
                 'id'           => (int) $id,
                 'title'        => $title,
@@ -509,7 +528,8 @@ class Eventicious {
      * 
      * @return array Массив
      */
-    public function sessionsAttachmentsDelete($id, $sessionId) {
+    public function sessionsAttachmentsDelete($id, $sessionId)
+    {
         $id = (int) $id;
         return $this->CallAPI("DELETE", "api/external/Sessions/$sessionId/Attachments/Delete/$id");
     }
@@ -534,7 +554,8 @@ class Eventicious {
      *
      * @return array Массив
      */
-    public function ACLGroupsCreate($id, $name) {
+    public function ACLGroupsCreate($id, $name)
+    {
         $data = [
                 'id'           => (int) $id,
                 'name'        => $name,
@@ -553,7 +574,8 @@ class Eventicious {
      *
      * @return array Массив
      */
-    public function ACLGroupsUpdate($id, $name, $language = "ru-RU") {
+    public function ACLGroupsUpdate($id, $name, $language = "ru-RU")
+    {
         $data = [
                 'id'           => (int) $id,
                 'name'         => $name,
@@ -571,7 +593,8 @@ class Eventicious {
      *
      * @return array Массив
      */
-    public function ACLGroupsDelete($id, $sessionId) {
+    public function ACLGroupsDelete($id)
+    {
         $id = (int) $id;
         return $this->CallAPI("DELETE", "api/external/ACLGroups/Delete/$id");
     }
@@ -594,7 +617,8 @@ class Eventicious {
      * @return array Массив
      */
 
-    public function conferenceCreate($locations, $tracks, $sessions, $speakers) {
+    public function conferenceCreate($locations, $tracks, $sessions, $speakers)
+    {
         $data = [
                 'locations' => $locations,
                 'tracks'    => $tracks,
@@ -626,7 +650,8 @@ class Eventicious {
      * @return array Массив
      */
     
-    public function favoritesCreate($userId, $sessionId, $isAttending) {
+    public function favoritesCreate($userId, $sessionId, $isAttending)
+    {
         $data = [
                 'userId'      => $userId,
                 'sessionId'   => $sessionId,
@@ -650,7 +675,8 @@ class Eventicious {
      * 
      * @return array
      */
-    public function favoritesGet() {
+    public function favoritesGet()
+    {
         return $this->CallAPI("GET", "api/external/Reports/Favorites");
     }
 
@@ -668,7 +694,8 @@ class Eventicious {
      * 
      * @return array
      */
-    public function questionsGet() {
+    public function questionsGet()
+    {
         return $this->CallAPI("GET", "api/external/Reports/Questions");
     }
     
@@ -681,7 +708,8 @@ class Eventicious {
      * 
      * @return array
      */
-    private function CallAPI($method, $url, $data = false) {
+    private function CallAPI($method, $url, $data = false)
+    {
         $url = $this->host . $url;
         $this->last_error = '';
         $curl = curl_init();
@@ -724,8 +752,6 @@ class Eventicious {
         $response['result_code'] = $resultStatus['http_code'];
         // parse content            
         $response['content'] = json_decode($result);
-        
-       // deb($data, 0);
 
         if ($resultStatus['http_code'] != 200) {
             $this->last_error = $resultStatus;
