@@ -6,7 +6,7 @@ namespace Gulik17\Eventicious;
  * Класс для взаимодействия с API Eventicious (Приложение iOS/Android)
  */
 
-class Eventicious
+class Api
 {
     protected $host;         // api host
     protected $code;         // code
