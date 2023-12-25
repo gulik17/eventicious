@@ -1,0 +1,32 @@
+{
+    "name": "gulik17/eventicious",
+    "description": "PHP-класс для работы с api сервиса [eventicious.com](https://eventicious.com/)",
+    "type": "library",
+    "keywords": [
+        "eventicious",
+        "eventicious.com",
+        "eventicious api"
+    ],
+    "homepage": "https://github.com/gulik17/eventicious",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Gulevatyy",
+            "email": "gulik.v@bk.ru",
+            "homepage": "https://e-mw.ru",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/gulik17/eventicious/issues",
+        "source": "https://github.com/gulik17/eventicious"
+    },
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gulik17\\Eventicious\\": ""
+        }
+    }
+}
