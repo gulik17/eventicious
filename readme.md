@@ -28,7 +28,7 @@ php composer.phar require gulik17/eventicious "~1"
 $host = "https://admin.eventicious.com/";
 $code = "Your_Authorization_Key";
 
-$client = new \Gulik17\Eventicious\Eventicious();
+$client = new \Gulik17\Eventicious\Api();
 $client->setHost($host);
 $client->setCode($code);
 ```
@@ -45,8 +45,8 @@ $result = $client->speakersCreate(
     "Повар",
     "Москва",
     "https://vk.com/ivan_ivanov",
-    "https://twitter.com/",
-    "https://fb.com/",
+    "https://twitter.com/ivan_ivanov",
+    "https://fb.com/ivan_ivanov",
     "ivan@aurus.ru",
     "79885001133",
     "Звездный повар Ваня",
